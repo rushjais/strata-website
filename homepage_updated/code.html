@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary-container": "#3c4a5e",
+            "on-error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#7a3000",
+            "outline": "#a98a7d",
+            "surface-container-lowest": "#0c0e10",
+            "surface-dim": "#121416",
+            "on-tertiary": "#2f3131",
+            "on-surface-variant": "#e2bfb0",
+            "surface-variant": "#333537",
+            "on-secondary": "#233144",
+            "surface-tint": "#ffb693",
+            "secondary-fixed-dim": "#b9c7e0",
+            "tertiary-container": "#989999",
+            "on-secondary-fixed": "#0d1c2f",
+            "on-primary-container": "#572000",
+            "on-error": "#690005",
+            "primary-fixed-dim": "#ffb693",
+            "surface-container": "#1e2022",
+            "surface-container-high": "#282a2c",
+            "on-tertiary-fixed-variant": "#454747",
+            "surface-container-low": "#1a1c1e",
+            "primary-container": "#ff6b00",
+            "inverse-surface": "#e2e2e5",
+            "primary": "#ffb693",
+            "outline-variant": "#5a4136",
+            "error": "#ffb4ab",
+            "primary-fixed": "#ffdbcc",
+            "on-tertiary-container": "#2f3132",
+            "surface-container-highest": "#333537",
+            "on-secondary-fixed-variant": "#3a485c",
+            "surface": "#121416",
+            "background": "#121416",
+            "on-primary-fixed": "#351000",
+            "on-secondary-container": "#abb9d2",
+            "tertiary-fixed": "#e2e2e2",
+            "secondary": "#b9c7e0",
+            "inverse-primary": "#a04100",
+            "tertiary-fixed-dim": "#c6c6c7",
+            "on-surface": "#e2e2e5",
+            "secondary-fixed": "#d5e3fd",
+            "on-tertiary-fixed": "#1a1c1c",
+            "on-background": "#e2e2e5",
+            "surface-bright": "#37393b",
+            "on-primary": "#561f00",
+            "tertiary": "#c6c6c7",
+            "error-container": "#93000a",
+            "inverse-on-surface": "#2f3133"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "unit-1": "4px",
+            "margin-tablet": "24px",
+            "unit-12": "48px",
+            "unit-8": "32px",
+            "unit-4": "16px",
+            "unit-2": "8px",
+            "gutter": "16px",
+            "unit-6": "24px",
+            "base": "4px",
+            "margin-mobile": "16px"
+          },
+          "fontFamily": {
+            "body-lg": ["Inter"],
+            "label-caps": ["Inter"],
+            "body-md": ["Inter"],
+            "h1": ["Space Grotesk"],
+            "h3": ["Space Grotesk"],
+            "h2": ["Space Grotesk"],
+            "mono-data": ["Space Grotesk"]
+          },
+          "fontSize": {
+            "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+            "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+            "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+            "h1": ["40px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "h3": ["24px", {"lineHeight": "1.3", "letterSpacing": "0em", "fontWeight": "600"}],
+            "h2": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "mono-data": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .technical-grid {
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .crosshair-corner {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-color: #ff6b00;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopNavBar Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-[#1A1C1E] dark:bg-[#1A1C1E]/95 backdrop-blur-md border-b border-white/10 h-20">
+<div class="flex justify-between items-center px-8 h-full max-w-full mx-auto">
+<div class="flex items-center gap-unit-8">
+<span class="text-2xl font-black tracking-tighter text-white dark:text-white font-['Space_Grotesk']">Strata</span>
+<div class="hidden md:flex gap-unit-6 items-center">
+<a class="font-['Space_Grotesk'] uppercase tracking-wider text-sm font-bold text-[#FF6B00] border-b-2 border-[#FF6B00] pb-1 hover:bg-white/5 transition-all duration-200" href="#">Product</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-wider text-sm font-bold text-slate-300 dark:text-slate-400 hover:text-[#FF6B00] hover:bg-white/5 transition-all duration-200" href="#">Verticals</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-wider text-sm font-bold text-slate-300 dark:text-slate-400 hover:text-[#FF6B00] hover:bg-white/5 transition-all duration-200" href="#">Pricing</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-wider text-sm font-bold text-slate-300 dark:text-slate-400 hover:text-[#FF6B00] hover:bg-white/5 transition-all duration-200" href="#">About</a>
+</div>
+</div>
+<div class="flex items-center gap-unit-4">
+<button class="font-['Space_Grotesk'] uppercase tracking-wider text-sm font-bold text-slate-300 hover:text-[#FF6B00] transition-all">Login</button>
+<button class="bg-[#FF6B00] text-white font-['Space_Grotesk'] uppercase tracking-wider text-sm font-bold px-unit-6 py-unit-2 hover:scale-95 transition-all duration-150 ease-in-out">Request Demo</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-20 md:pt-48 md:pb-32 technical-grid min-h-screen flex items-center">
+<div class="container mx-auto px-margin-mobile md:px-margin-tablet flex flex-col lg:flex-row gap-unit-12 items-center">
+<div class="flex-1 text-left">
+<div class="inline-flex items-center px-3 py-1 bg-primary-container/20 border border-primary-container mb-unit-6">
+<span class="text-primary-container font-label-caps uppercase tracking-widest text-[10px]">AI COPILOT FOR FIELD SERVICE</span>
+</div>
+<h1 class="font-h1 text-h1 lg:text-[64px] mb-unit-6 text-white leading-none">
+          Stop digging through <br/> <span class="text-primary-container">manuals on the job.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-unit-8">
+          Strata is the voice and vision copilot for plumbers, automotive techs, and industrial service workers. Snap a photo, ask a question, get a manufacturer-grounded answer in seconds.
+        </p>
+<div class="flex flex-col sm:flex-row gap-unit-4">
+<button class="bg-primary-container text-white font-label-caps py-unit-4 px-unit-8 flex items-center justify-center gap-unit-2 active:scale-95 transition-all">
+            Request access
+            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="border border-white/20 text-white font-label-caps py-unit-4 px-unit-8 flex items-center justify-center gap-unit-2 hover:bg-white/5 transition-all">
+            Watch demo
+          </button>
+</div>
+</div>
+<div class="flex-1 relative w-full aspect-square md:aspect-video lg:aspect-square">
+<div class="absolute inset-0 border-2 border-white/5 rounded-lg overflow-hidden bg-surface-container">
+<img alt="Technician working on industrial machinery" class="w-full h-full object-cover opacity-60 mix-blend-luminosity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzKd5ttSVtdKCLY3c1Q0v_AKSjCUbTCT5uqd4fK8_PmPCESMPipxdupz_xgL5b2XEy4QF8WMlRAc-W12t9CK0mRRp9ex-QQWLlQbzheXjKBgGb669hTtVJvaqOSr0DKC0EEnybiITOpe1916i6hSsFKGIvsA0ZctcegSx_KGu-4Ac1Ton9xYk9hD4_b5y-2rv0my50wtIClhFIUNJa6PPXXWlIH08Wn5f9p-vh2agAfM1m4E7TDvESOLAK-Sd3nQ_ACMZWSvWKdoM"/>
+<!-- AI Vision Overlay Components -->
+<div class="absolute inset-8 pointer-events-none">
+<div class="absolute top-0 left-0 border-t-4 border-l-4 border-primary-container w-12 h-12"></div>
+<div class="absolute top-0 right-0 border-t-4 border-r-4 border-primary-container w-12 h-12"></div>
+<div class="absolute bottom-0 left-0 border-b-4 border-l-4 border-primary-container w-12 h-12"></div>
+<div class="absolute bottom-0 right-0 border-b-4 border-r-4 border-primary-container w-12 h-12"></div>
+<!-- Floating Diagnostics -->
+<div class="absolute top-1/4 right-8 bg-black/80 border border-primary-container p-unit-4 flex flex-col gap-unit-2">
+<span class="text-[10px] text-primary-container font-mono-data uppercase">Equipment ID</span>
+<span class="text-white font-mono-data text-sm">SIEMENS-X4000</span>
+<div class="w-full bg-white/10 h-1 mt-1">
+<div class="bg-primary-container w-2/3 h-full"></div>
+</div>
+</div>
+<div class="absolute bottom-1/4 left-8 bg-black/80 border border-white/20 p-unit-4 flex flex-col gap-unit-2">
+<span class="text-[10px] text-white/60 font-mono-data uppercase">Status: Review Required</span>
+<span class="text-error font-mono-data text-sm">Thermal Variance: +42°C</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Logo Cloud Section -->
+<section class="py-unit-12 border-y border-white/5 bg-surface-container-low">
+<div class="container mx-auto px-margin-mobile">
+<p class="text-center font-label-caps text-on-surface-variant/50 uppercase tracking-[0.2em] mb-unit-8">CURRENTLY PILOTING WITH</p>
+<div class="flex flex-wrap justify-center items-center gap-unit-12 opacity-50 grayscale hover:grayscale-0 transition-all">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl" data-icon="plumbing">plumbing</span>
+<span class="font-h3 text-white">BIG JOHN'S PLUMBING</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-4xl" data-icon="engineering">engineering</span>
+<span class="font-h3 text-white">ALL PHASE PLUMBING</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Row Section -->
+<section class="py-unit-8 bg-background border-b border-white/5">
+<div class="container mx-auto px-margin-mobile">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-unit-6 text-center">
+<div>
+<div class="text-h3 font-h3 text-white">6,970</div>
+<div class="text-[10px] font-label-caps text-on-surface-variant/60 tracking-widest uppercase">VECTORS INDEXED</div>
+</div>
+<div>
+<div class="text-h3 font-h3 text-white">3</div>
+<div class="text-[10px] font-label-caps text-on-surface-variant/60 tracking-widest uppercase">VERTICALS LIVE</div>
+</div>
+<div>
+<div class="text-h3 font-h3 text-white">MFG. SOURCED</div>
+<div class="text-[10px] font-label-caps text-on-surface-variant/60 tracking-widest uppercase">EVERY ANSWER</div>
+</div>
+<div>
+<div class="text-h3 font-h3 text-white">0 → 1 DAYS</div>
+<div class="text-[10px] font-label-caps text-on-surface-variant/60 tracking-widest uppercase">TO ONBOARD</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How it Works Section -->
+<section class="py-unit-12 bg-background relative overflow-hidden">
+<div class="container mx-auto px-margin-mobile">
+<div class="flex flex-col md:flex-row justify-between items-end mb-unit-12 gap-unit-6">
+<div class="max-w-2xl">
+<span class="text-primary-container font-label-caps uppercase tracking-widest">Three taps from problem to fix</span>
+<h2 class="font-h2 text-h2 text-white mt-unit-2">Designed for the Hands-On</h2>
+</div>
+<div class="h-[2px] flex-grow mx-unit-8 bg-white/5 hidden lg:block mb-unit-4"></div>
+<span class="font-mono-data text-on-surface-variant/40">STRATA_PROCESS_V1.0</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-unit-8">
+<!-- Voice Card -->
+<div class="bg-surface-container border border-white/10 p-unit-8 relative group hover:border-primary-container transition-all">
+<div class="mb-unit-6 text-primary-container">
+<span class="material-symbols-outlined text-5xl" data-icon="mic">mic</span>
+</div>
+<h3 class="font-h3 text-h3 text-white mb-unit-4">Voice-First AI</h3>
+<p class="text-on-surface-variant">Hands-free queries. Wake-word activation. Strata understands natural language questions about whatever you're seeing — even when you don't know the right terminology.</p>
+<div class="mt-unit-8 flex items-end justify-between">
+<span class="font-mono-data text-primary-container/40 text-4xl">01</span>
+<span class="font-label-caps text-white/20 uppercase text-[10px]">SNAP</span>
+</div>
+</div>
+<!-- Vision Card -->
+<div class="bg-surface-container border border-white/10 p-unit-8 relative group hover:border-primary-container transition-all">
+<div class="mb-unit-6 text-primary-container">
+<span class="material-symbols-outlined text-5xl" data-icon="visibility">visibility</span>
+</div>
+<h3 class="font-h3 text-h3 text-white mb-unit-4">Computer Vision</h3>
+<p class="text-on-surface-variant">Photograph any equipment in your verticals. Strata identifies the make, model, and visible parts. Works on Navien water heaters, OBD-II scanners, Hobart prep washers — anything in the indexed library.</p>
+<div class="mt-unit-8 flex items-end justify-between">
+<span class="font-mono-data text-primary-container/40 text-4xl">02</span>
+<span class="font-label-caps text-white/20 uppercase text-[10px]">ASK</span>
+</div>
+</div>
+<!-- RAG Card -->
+<div class="bg-surface-container border border-white/10 p-unit-8 relative group hover:border-primary-container transition-all">
+<div class="mb-unit-6 text-primary-container">
+<span class="material-symbols-outlined text-5xl" data-icon="auto_stories">auto_stories</span>
+</div>
+<h3 class="font-h3 text-h3 text-white mb-unit-4">OEM Knowledge (RAG)</h3>
+<p class="text-on-surface-variant">6,970 indexed pages from manufacturer service manuals. When you ask a question, Strata retrieves the relevant pages and answers from them. Not training data. Not guesses. Source-cited every time.</p>
+<div class="mt-unit-8 flex items-end justify-between">
+<span class="font-mono-data text-primary-container/40 text-4xl">03</span>
+<span class="font-label-caps text-white/20 uppercase text-[10px]">FIX</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Source Citations Section -->
+<section class="py-unit-12 bg-surface-container-low border-t border-white/10">
+<div class="container mx-auto px-margin-mobile">
+<div class="bg-surface border-2 border-primary-container/20 p-unit-8 md:p-unit-12 flex flex-col md:flex-row gap-unit-8 items-center">
+<div class="flex-1">
+<span class="bg-primary-container text-white font-label-caps px-2 py-1 text-[10px]">TRUST</span>
+<h4 class="font-h2 text-h2 text-white mt-unit-4 mb-unit-4">Every answer cites its source.</h4>
+<p class="text-body-lg text-on-surface-variant mb-unit-6">Strata doesn't make things up. Every diagnosis includes a 'Why this answer?' button that shows the exact manufacturer manual page the answer came from. Techs verify every claim against the original document in one tap. No black box. No hallucinations.</p>
+<div class="flex items-center gap-unit-4">
+<button class="bg-primary-container/10 border border-primary-container text-primary-container font-label-caps px-unit-6 py-unit-3 flex items-center gap-2 text-sm hover:bg-primary-container hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="description">description</span>
+                WHY THIS ANSWER?
+              </button>
+</div>
+</div>
+<div class="flex-1 bg-surface-container-high p-unit-6 border border-white/10 w-full relative overflow-hidden">
+<div class="absolute top-0 right-0 p-unit-2">
+<span class="material-symbols-outlined text-primary-container/20 text-6xl" data-icon="fact_check">fact_check</span>
+</div>
+<div class="space-y-unit-4">
+<div class="p-unit-4 bg-black/40 border-l-4 border-primary-container">
+<div class="text-[10px] font-mono-data text-primary-container mb-1">REFERENCE FOUND</div>
+<div class="text-white font-medium text-sm">Navien NPE-240A Service Manual, page 47</div>
+<div class="mt-2 text-on-surface-variant text-xs font-mono-data italic leading-relaxed">"Section 4.2: Flame Rod inspection procedure. Clean sensor with 300 grit sandpaper if resistance exceeds 2.4 MΩ..."</div>
+</div>
+<div class="p-unit-4 bg-white/5 border-l-4 border-white/20">
+<div class="text-[10px] font-mono-data text-white/40 mb-1">SECONDARY CITATION</div>
+<div class="text-white/60 font-medium text-sm">Troubleshooting Chart 3B (Navien 2023)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 bg-primary-container text-white overflow-hidden relative">
+<div class="absolute inset-0 opacity-10 technical-grid pointer-events-none"></div>
+<div class="container mx-auto px-margin-mobile text-center relative z-10">
+<h2 class="font-h1 text-[48px] md:text-[64px] mb-unit-6 leading-tight">Ready to upgrade <br/> your field ops?</h2>
+<p class="font-body-lg text-white/90 max-w-2xl mx-auto mb-unit-12">Join the waitlist for the Strata Industrial Pilot and lead the future of field service maintenance.</p>
+<div class="flex flex-col sm:flex-row gap-unit-4 justify-center">
+<button class="bg-white text-primary-container font-label-caps py-unit-6 px-unit-12 text-lg active:scale-95 transition-all">
+          Apply for the Pilot Program
+        </button>
+<button class="border-2 border-white/40 text-white font-label-caps py-unit-6 px-unit-12 text-lg hover:bg-white/10 transition-all">
+          Contact Sales Engineering
+        </button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#1A1C1E] dark:bg-[#121416] border-t-2 border-slate-800">
+<div class="max-w-7xl mx-auto py-12 px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex flex-col items-center md:items-start gap-unit-2">
+<span class="text-lg font-bold text-slate-200 dark:text-slate-200 font-['Space_Grotesk']">Strata Industrial AI</span>
+<p class="font-['Space_Grotesk'] text-xs tracking-tight text-slate-500 dark:text-slate-500 uppercase">© 2024 Strata Industrial AI. Precision Built for the Field.</p>
+</div>
+<div class="flex gap-unit-8">
+<a class="font-['Space_Grotesk'] text-xs tracking-tight text-slate-500 hover:text-white transition-colors" href="#">Contact</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-tight text-slate-500 hover:text-white transition-colors" href="#">Support</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-tight text-slate-500 hover:text-white transition-colors" href="#">Privacy</a>
+<a class="font-['Space_Grotesk'] text-xs tracking-tight text-slate-500 hover:text-white transition-colors" href="#">Terms</a>
+</div>
+<div class="flex gap-unit-4">
+<div class="w-10 h-10 flex items-center justify-center border border-white/10 hover:border-primary-container transition-all cursor-pointer">
+<span class="material-symbols-outlined text-slate-500" data-icon="share">share</span>
+</div>
+<div class="w-10 h-10 flex items-center justify-center border border-white/10 hover:border-primary-container transition-all cursor-pointer">
+<span class="material-symbols-outlined text-slate-500" data-icon="rss_feed">rss_feed</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
